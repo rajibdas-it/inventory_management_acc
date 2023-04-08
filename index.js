@@ -11,15 +11,19 @@ const dbConnect = require("./utils/dbConnection");
 app.use(express.json());
 app.use(cors());
 
+//connect database from utils
 dbConnect();
 
+//define api route
 app.use("/api/v1/product", productRoute);
 
+//universal route
 app.get("/", (req, res) => {
   console.log("Server is running");
 });
-app.all("*", (req, res) => {
-  console.log("no page found with this url");
+app.all("*", (req, res, next) => {
+  res.send("no url found with this");
+  next();
 });
 app.listen(port, () => {
   console.log(`server running on port ${port}`.yellow.bold);
