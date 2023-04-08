@@ -31,3 +31,16 @@ module.exports.deleteProductServices = async (id) => {
   const result = await Product.deleteOne({ _id: id });
   return result;
 };
+
+module.exports.bulkUpdateProductServices = async (data) => {
+  // console.log(data);
+  const result = await Product.updateMany({ _id: data.ids }, data.data, {
+    runValidators: true,
+  });
+  // const products = [];
+  // data.ids.forEach((product) =>
+  //   products.push(Product.updateOne({ _id: product.id }, product.data))
+  // );
+  // const result = await Promise.all(products);
+  return result;
+};

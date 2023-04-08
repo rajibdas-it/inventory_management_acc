@@ -5,6 +5,7 @@ const {
   updateProductServices,
   getSingleProductServices,
   deleteProductServices,
+  bulkUpdateProductServices,
 } = require("../services/product.services");
 
 module.exports.getProducts = async (req, res, next) => {
@@ -113,6 +114,24 @@ module.exports.deleteProduct = async (req, res, next) => {
     res.status(400).json({
       status: "Fail",
       message: "Product can not updated",
+      error: error.message,
+    });
+  }
+};
+
+module.exports.bulkUpdateProduct = async (req, res, next) => {
+  try {
+    // console.log(req.body);
+    const result = await bulkUpdateProductServices(req.body);
+    res.status(200).json({
+      status: "Success",
+      message: "Products updated successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "Fail",
+      message: "Product cannot updated",
       error: error.message,
     });
   }

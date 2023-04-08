@@ -6,6 +6,7 @@ router
   .route("/")
   .get(productController.getProducts)
   .post(productController.addProduct);
+router.route("/bulk-update").patch(productController.bulkUpdateProduct);
 router
   .route("/:id")
   .get(productController.getSingleProduct)
