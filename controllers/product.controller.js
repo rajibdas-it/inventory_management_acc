@@ -1,4 +1,8 @@
 const Product = require("../models/Products");
+const {
+  getProductService,
+  createProductServices,
+} = require("../services/product.services");
 
 module.exports.getProducts = async (req, res, next) => {
   try {
@@ -13,7 +17,7 @@ module.exports.getProducts = async (req, res, next) => {
     //   .where("quantity")
     //   .gte(100)
     //   .limit(2);
-    const products = await Product.find({});
+    const products = await getProductService();
     if (products.length > 0) {
       message = "Products Found";
     } else {
@@ -40,9 +44,8 @@ module.exports.addProduct = async (req, res, next) => {
     // const result = await product.save();
 
     //create method
-    const result = await Product.create(req.body);
-    result.logger();
-
+    const result = await createProductServices(req.body);
+    // result.logg();
     res.status(200).json({
       status: "success",
       message: "Data inserted successfully",
