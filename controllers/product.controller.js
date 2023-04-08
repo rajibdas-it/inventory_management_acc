@@ -2,6 +2,9 @@ const Product = require("../models/Products");
 const {
   getProductService,
   createProductServices,
+  updateProductServices,
+  getSingleProductServices,
+  deleteProductServices,
 } = require("../services/product.services");
 
 module.exports.getProducts = async (req, res, next) => {
@@ -55,6 +58,61 @@ module.exports.addProduct = async (req, res, next) => {
     res.status(400).json({
       status: "Fail",
       message: "Data cannot inserted",
+      error: error.message,
+    });
+  }
+};
+
+module.exports.getSingleProduct = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const product = await getSingleProductServices(id);
+    res.status(200).json({
+      status: "Succes",
+      message: "Product found",
+      data: product,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: "No product found",
+      error: error.message,
+    });
+  }
+};
+
+module.exports.updateProduct = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const data = req.body;
+    const result = await updateProductServices(id, data);
+    res.status(200).json({
+      status: "Success",
+      message: "Product updated successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "Fail",
+      message: "Product cannot updated",
+      error: error.message,
+    });
+  }
+};
+
+module.exports.deleteProduct = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const result = await deleteProductServices(id);
+    res.status(200).json({
+      status: "Success",
+      message: "Product deleted successfully",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "Fail",
+      message: "Product can not updated",
       error: error.message,
     });
   }
