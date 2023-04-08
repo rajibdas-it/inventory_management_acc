@@ -132,6 +132,39 @@ app.post("/api/v1/product", async (req, res, next) => {
   }
 });
 
+app.get("/api/v1/product", async (req, res, next) => {
+  try {
+    // const filter = { _id: "6430f83e5bc7d02f8515a2e6", name: "Coconut Oil" };
+    const filter = { name: { $in: ["Rice", "Soyabin Oil"] } };
+    // .sort({ quantity: -1, name: -1 });
+    // .select({ name: 1 }); --> projection with select method
+    let message = "";
+    // const products = await Product.find({}).select({ name: 1 });
+    // const products = await Product.where("name")
+    //   .equals(/\w/)
+    //   .where("quantity")
+    //   .gte(100)
+    //   .limit(2);
+    const products = await Product.findById("6430f83e5bc7d02f8515a2e6");
+    if (products.length > 0) {
+      message = "Products Found";
+    } else {
+      message = "No Product found";
+    }
+    res.status(200).json({
+      status: "Success",
+      message: message,
+      data: products,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: "something went wrong",
+      error: error.message,
+    });
+  }
+});
+
 module.exports = app;
 
 // res.send(400).json({
