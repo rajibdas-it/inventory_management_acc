@@ -39,7 +39,7 @@ module.exports.bulkUpdateProductServices = async (data) => {
   });
   // const products = [];
   // data.ids.forEach((product) =>
-  //   products.push(Product.updateOne({ _id: product.id }, product.data))
+  //  { products.push(Product.updateOne({ _id: product.id }, product.data))}
   // );
   // const result = await Promise.all(products);
   return result;
