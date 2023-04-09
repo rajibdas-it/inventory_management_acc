@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
+const { ObjectId } = mongoose.Schema.Types;
 //Schema Design
 const productSchema = mongoose.Schema(
   {
@@ -9,41 +11,52 @@ const productSchema = mongoose.Schema(
       unique: [true, "Name should be unique"],
       minLength: [3, "Name must be at least 3 characters"],
       maxLength: [100, "Name is too large"],
+      lowercase: true,
     },
     description: {
       type: String,
       required: true,
     },
-    price: {
-      type: Number,
-      required: true,
-      min: [0, "price cant be negative"],
-    },
     unit: {
       type: String,
       required: true,
-      enum: ["kg", "litre", "pcs"],
+      enum: ["kg", "litre", "pcs", "bags"],
     },
-    quantity: {
-      type: Number,
-      required: true,
-      min: [0, "quantity cant be negative"],
-      validate: {
-        validator: (value) => {
-          const isInteger = Number.isInteger(value);
-          if (isInteger) {
-            return true;
-          } else {
-            return false;
-          }
+    imageUrl: [
+      {
+        type: String,
+        required: true,
+        validate: {
+          validator: (value) => {
+            if (Array.isArray(value)) {
+              return false;
+            }
+            let isValid = true;
+            value.forEach((url) => {
+              if (!validator.isURL(url)) {
+                isValid = false;
+              }
+            });
+            return isValid;
+          },
+          message: "Please provide valid image urls",
         },
       },
-      message: "Quantity must be an Integer",
-    },
-    status: {
+    ],
+    categroy: {
       type: String,
       required: true,
-      enum: ["in-stock", "out-of-stock", "discontinued"],
+    },
+    brand: {
+      name: {
+        type: String,
+        required: true,
+      },
+      id: {
+        type: ObjectId,
+        ref: "Brand",
+        required: true,
+      },
     },
     // createdAt: {
     //   type: Date,
