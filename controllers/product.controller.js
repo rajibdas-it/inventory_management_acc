@@ -11,7 +11,7 @@ const {
 module.exports.getProducts = async (req, res, next) => {
   try {
     // const filter = { _id: "6430f83e5bc7d02f8515a2e6", name: "Coconut Oil" };
-    const filter = { name: { $in: ["Rice", "Soyabin Oil"] } };
+    // const filter = { name: { $in: ["Rice", "Soyabin Oil"] } };
     // .sort({ quantity: -1, name: -1 });
     // .select({ name: 1 }); --> projection with select method
     let message = "";
@@ -21,16 +21,48 @@ module.exports.getProducts = async (req, res, next) => {
     //   .where("quantity")
     //   .gte(100)
     //   .limit(2);
-    // console.log(req.query);
-    const queryObject = { ...req.query };
+    console.log(req.query);
+    // {
+    //   price: {
+    //     $gt: 50;
+    //   }
+    // }
+    let filters = { ...req.query };
+    // console.log("i want to see filters", filters);
     //excluding query like sort, page, limit and others.
-    const excludeFields = ["sort", "page", "limit"];
-    excludeFields.forEach((field) => delete queryObject[field]);
+    const excludeFields = ["sort", "page", "limit", "fields"];
+    excludeFields.forEach((field) => delete filters[field]);
 
-    console.log("query request", req.query);
-    console.log("query object", queryObject);
+    const quries = {};
+    //gt,lt,gte,lte
+    let filtersString = JSON.stringify(filters);
+    filtersString = filtersString.replace(
+      /\b(lt|lte|gt|gte)\b/g,
+      (match) => `$${match}`
+    );
+    filters = JSON.parse(filtersString);
+    if (req.query.sort) {
+      const sortBy = req.query.sort.split(",").join(" ");
+      // console.log(sortBy);
+      quries.sortBy = sortBy;
+    }
+    if (req.query.limit) {
+      quries.limit = req.query.limit;
+    }
+    if (req.query.page) {
+      quries.page = req.query.page;
+    }
+    if (req.query.fields) {
+      const fields = req.query.fields.split(",").join(" ");
+      quries.fields = fields;
+    }
 
-    const products = await getProductService(queryObject);
+    // console.log(quries);
+
+    // console.log("query request", req.query);
+    // console.log("query object", filters);
+
+    const products = await getProductService(filters, quries);
     if (products.length > 0) {
       message = "Products Found";
     } else {
