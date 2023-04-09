@@ -41,7 +41,9 @@ const storeSchema = mongoose.Schema(
       },
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
 const Store = mongoose.model("Store", storeSchema);

@@ -6,6 +6,7 @@ const port = process.env.PORT || 8080;
 const productRoute = require("./routes/product.route");
 const colors = require("colors");
 const dbConnect = require("./utils/dbConnection");
+const brandRouter = require("./routes/brand.route");
 
 //middlewares
 app.use(express.json());
@@ -16,6 +17,7 @@ dbConnect();
 
 //define api route
 app.use("/api/v1/product", productRoute);
+app.use("/api/v1/brand", brandRouter);
 
 //universal route
 app.get("/", (req, res) => {
