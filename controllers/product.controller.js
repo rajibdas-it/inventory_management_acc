@@ -53,7 +53,7 @@ module.exports.getProducts = async (req, res, next) => {
       const { page = 1, limit = 10 } = req.query;
       const skip = (page - 1) * parseInt(limit);
       quries.skip = skip;
-      quries.limit = limit;
+      quries.limit = parseInt(limit);
     }
     if (req.query.fields) {
       const fields = req.query.fields.split(",").join(" ");
