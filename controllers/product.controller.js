@@ -21,7 +21,16 @@ module.exports.getProducts = async (req, res, next) => {
     //   .where("quantity")
     //   .gte(100)
     //   .limit(2);
-    const products = await getProductService();
+    // console.log(req.query);
+    const queryObject = { ...req.query };
+    //excluding query like sort, page, limit and others.
+    const excludeFields = ["sort", "page", "limit"];
+    excludeFields.forEach((field) => delete queryObject[field]);
+
+    console.log("query request", req.query);
+    console.log("query object", queryObject);
+
+    const products = await getProductService(queryObject);
     if (products.length > 0) {
       message = "Products Found";
     } else {
