@@ -1,7 +1,7 @@
 const Product = require("../models/Products");
 
 module.exports.getProductService = async (filters, quries) => {
-  // console.log(quries);
+  console.log(quries);
   const { limit, sortBy, fields } = quries || {};
   // console.log(filters, sortBy);
   const products = await Product.find(filters)

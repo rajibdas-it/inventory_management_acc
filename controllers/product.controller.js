@@ -21,7 +21,7 @@ module.exports.getProducts = async (req, res, next) => {
     //   .where("quantity")
     //   .gte(100)
     //   .limit(2);
-    console.log(req.query);
+    // console.log(req.query);
     // {
     //   price: {
     //     $gt: 50;
@@ -46,11 +46,14 @@ module.exports.getProducts = async (req, res, next) => {
       // console.log(sortBy);
       quries.sortBy = sortBy;
     }
-    if (req.query.limit) {
-      quries.limit = req.query.limit;
-    }
+    // if (req.query.limit) {
+    //   quries.limit = req.query.limit;
+    // }
     if (req.query.page) {
-      quries.page = req.query.page;
+      const { page = 1, limit = 10 } = req.query;
+      const skip = (page - 1) * parseInt(limit);
+      quries.skip = skip;
+      quries.limit = limit;
     }
     if (req.query.fields) {
       const fields = req.query.fields.split(",").join(" ");
