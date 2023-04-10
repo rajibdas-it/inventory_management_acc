@@ -9,6 +9,7 @@ const dbConnect = require("./utils/dbConnection");
 const brandRouter = require("./routes/brand.route");
 const storeRouter = require("./routes/store.route");
 const categoryRouter = require("./routes/category.route");
+const supplierRouter = require("./routes/supplier.route");
 
 //middlewares
 app.use(express.json());
@@ -22,6 +23,7 @@ app.use("/api/v1/product", productRoute);
 app.use("/api/v1/brand", brandRouter);
 app.use("/api/v1/store", storeRouter);
 app.use("/api/v1/category", categoryRouter);
+app.use("/api/v1/supplier", supplierRouter);
 
 //universal route
 app.get("/", (req, res) => {
