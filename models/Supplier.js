@@ -15,20 +15,28 @@ const supplierSchema = mongoose.Schema(
       validate: [validator.isEmail, "provide a valid email"],
     },
     brand: {
-      type: ObjectId,
-      ref: "Brand",
-      required: true,
-    },
-    contactNumber: {
-      type: String,
-      required: true,
-      validate: {
-        validator: (value) => {
-          return validator.isMobilePhone(value);
-        },
-        message: "please provide a valid phone number",
+      name: {
+        type: String,
+        required: true,
+      },
+      id: {
+        type: ObjectId,
+        ref: "Brand",
+        required: true,
       },
     },
+    contactNumber: [
+      {
+        type: String,
+        required: true,
+        validate: {
+          validator: (value) => {
+            return validator.isMobilePhone(value);
+          },
+          message: "please provide a valid phone number",
+        },
+      },
+    ],
     tradeLicenseNumber: {
       type: Number,
       // required: true,

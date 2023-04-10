@@ -4,6 +4,11 @@ const { ObjectId } = mongoose.Schema.Types;
 
 const stockSchema = mongoose.Schema(
   {
+    productId: {
+      type: ObjectId,
+      required: true,
+      ref: "Product",
+    },
     name: {
       type: String,
       required: true,
@@ -95,6 +100,13 @@ const stockSchema = mongoose.Schema(
         message: "status cannot be {VALUES}",
       },
     },
+    imageURL: [
+      {
+        type: String,
+        required: true,
+        validate: [validator.isURL, "Please provide a valid url"],
+      },
+    ],
   },
   { timestamps: true }
 );
