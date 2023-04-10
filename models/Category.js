@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const { ObjectId } = mongoose.Schema.Types;
+// const { ObjectId } = mongoose.Schema.Types;
 
 const categorySchema = mongoose.Schema(
   {
@@ -13,9 +13,9 @@ const categorySchema = mongoose.Schema(
       lowercase: true,
     },
     description: String,
-    imageUrl: {
+    imageURL: {
       type: String,
-      validate: [validator.isUrl, "please provide a valid url"],
+      validate: [validator.isURL, "please provide a valid url"],
     },
   },
   {
