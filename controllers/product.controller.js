@@ -179,3 +179,10 @@ module.exports.bulkUpdateProduct = async (req, res, next) => {
     });
   }
 };
+
+module.exports.fileUpload = async (req, res) => {
+  try {
+    // res.status(200).json(req.file); //for single upload
+    res.status(200).json(req.files); //for multiple upload
+  } catch (error) {}
+};
