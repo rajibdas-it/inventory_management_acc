@@ -4,6 +4,12 @@ const { ObjectId } = mongoose.Schema.Types;
 
 const brandSchema = mongoose.Schema(
   {
+    products: [
+      {
+        type: ObjectId,
+        ref: "Product",
+      },
+    ],
     name: {
       type: String,
       required: [true, "Please provide a brand name"],
@@ -24,12 +30,7 @@ const brandSchema = mongoose.Schema(
       lowercase: true,
     },
     location: String,
-    products: [
-      {
-        type: ObjectId,
-        ref: "Product",
-      },
-    ],
+
     suppliers: [
       {
         name: String,
@@ -38,8 +39,10 @@ const brandSchema = mongoose.Schema(
       },
     ],
     status: {
-      tyep: String,
+      type: String,
+      required: true,
       enum: ["active", "inactive"],
+      default: "active",
     },
   },
   {
