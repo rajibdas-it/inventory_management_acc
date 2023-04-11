@@ -20,7 +20,7 @@ const productSchema = mongoose.Schema(
     unit: {
       type: String,
       required: true,
-      enum: ["kg", "litre", "pcs", "bags"],
+      enum: ["kg", "litre", "pcs", "bag"],
     },
     imageUrl: [
       {

@@ -1,0 +1,100 @@
+[
+  {
+    "productId": "64345328817bf6653045a0e0",
+    "name": "rupchanda refined sugar",
+    "description": "First Vitamin A fortified Soyabean Oil. Increases immunity. Strengthens bone & teeth.",
+    "imageURLs": [
+      "https://chaldn.com/_mpimage/rupchanda-fortified-soyabean-oil-5-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92500&q=best&v=1&m=400&webp=1"
+    ],
+    "unit": "litre",
+    "price": "450",
+    "category": "Oil",
+    "brand": {
+      "name": "Rupchanda",
+      "id": "6329f4a69c503f0b7438b25e"
+    },
+    "store": {
+      "name": "dhaka",
+      "id": "63316b54df4cc92bd0d74f2d"
+    },
+    "suppliedBy": {
+      "name": "abdullah al fahim",
+      "id": "64342ca0a47c4f369b89427a"
+    },
+    "sellCount": 50
+  },
+  {
+    "productId": "64345328817bf6653045a0e0",
+    "name": "rupchanda refined sugar",
+    "description": "First Vitamin A fortified Soyabean Oil. Increases immunity. Strengthens bone & teeth.",
+    "imageURLs": [
+      "https://chaldn.com/_mpimage/rupchanda-fortified-soyabean-oil-5-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92500&q=best&v=1&m=400&webp=1"
+    ],
+    "unit": "litre",
+    "price": "450",
+    "category": "Oil",
+    "brand": {
+      "name": "rupchanda",
+      "id": "643428f51f1755c1e5bd6964"
+    },
+    "store": {
+      "name": "chattogram",
+      "id": "633412b419894112041a9018"
+    },
+    "suppliedBy": {
+      "name": "mezbaul abedin persian",
+      "id": "64342b064cc5e544bf80961e"
+    },
+    "sellCount": 50
+  },
+
+  {
+    "productId": "64345350817bf6653045a0e7",
+    "name": "fresh chinigura aromatic rice - 5kg bag",
+    "description": "Fresh Chinigura Rice. Fresh and Clean, Vacuum Packed. Fresh Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
+    "imageURLs": [
+      "https://chaldn.com/_mpimage/fresh-chinigura-rice-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D84466&q=low&v=1&m=400&webp=1"
+    ],
+    "unit": "kg",
+    "price": "357",
+    "category": "Rice",
+    "brand": {
+      "name": "Fresh",
+      "id": "6434290b1f1755c1e5bd6968"
+    },
+    "store": {
+      "name": "chattogram",
+      "id": "633412b419894112041a9018"
+    },
+    "suppliedBy": {
+      "name": "rasel ahmed",
+      "id": "64342cbaa47c4f369b89427e"
+    },
+    "sellCount": 17
+  },
+
+  {
+    "productId": "64345350817bf6653045a0e7",
+    "name": "fresh chinigura aromatic rice - 5kg bag",
+    "description": "Fresh Chinigura Rice. Fresh and Clean, Vacuum Packed. Fresh Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
+    "imageURLs": [
+      "https://chaldn.com/_mpimage/fresh-chinigura-rice-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D84466&q=low&v=1&m=400&webp=1"
+    ],
+    "unit": "kg",
+    "price": "357",
+    "category": "Rice",
+    "brand": {
+      "name": "Fresh",
+      "id": "6434290b1f1755c1e5bd6968"
+    },
+    "store": {
+      "name": "dhaka",
+      "id": "63316b54df4cc92bd0d74f2d"
+    },
+    "suppliedBy": {
+      "name": "jhankar mahbub",
+      "id": "64342cada47c4f369b89427c"
+    },
+    "sellCount": 17
+  }
+]

@@ -1,6 +1,6 @@
 [
   {
-    "name": "Pran Chinigura Aromatic Rice - 5kg Bag",
+    "name": "Fresh Chinigura Aromatic Rice - 5kg Bag",
     "description": "Pran Chinigura Aromatic Rice (Polau). Fresh and Clean, Vacuum Packed. Pran Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
     "imageURLs": [
       "https://chaldn.com/_mpimage/pran-chinigura-aromatic-rice-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108114&q=best&v=1&m=400&webp=1",
@@ -9,8 +9,22 @@
     "unit": "bag",
     "category": "Rice",
     "brand": {
-      "name": "Pran",
-      "id": "..."
+      "name": "Fresh",
+      "id": " 6434290b1f1755c1e5bd6968"
+    }
+  },
+  {
+    "name": "Fresh Nazirshail Rice - 5kg",
+    "description": "Pran Nazirshail Rice. Fresh and Clean, Vacuum Packed. Pran Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
+    "imageURLs": [
+      "https://chaldn.com/_mpimage/pran-nazirshail-rice-5-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48089&q=low&v=1&m=400&webp=1",
+      "https://chaldn.com/_mpimage/pran-chinigura-aromatic-rice-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108114&q=best&v=1&m=400&webp=1"
+    ],
+    "unit": "bag",
+    "category": "Rice",
+    "brand": {
+      "name": "Fresh",
+      "id": "6434290b1f1755c1e5bd6968"
     }
   },
   {
@@ -23,23 +37,8 @@
     "unit": "bag",
     "category": "Rice",
     "brand": {
-      "name": "Pran",
-      "id": "..."
-    }
-  },
-
-  {
-    "name": "Pran Nazirshail Rice - 5kg",
-    "description": "Pran Nazirshail Rice. Fresh and Clean, Vacuum Packed. Pran Chinigura Rice can be use in Biriyani, Polau, Firni, Kheer, Khichuri.",
-    "imageURLs": [
-      "https://chaldn.com/_mpimage/pran-nazirshail-rice-5-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48089&q=low&v=1&m=400&webp=1",
-      "https://chaldn.com/_mpimage/pran-chinigura-aromatic-rice-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108114&q=best&v=1&m=400&webp=1"
-    ],
-    "unit": "bag",
-    "category": "Rice",
-    "brand": {
-      "name": "Pran",
-      "id": "..."
+      "name": "pran",
+      "id": ""
     }
   },
 
@@ -93,13 +92,13 @@
     "unit": "litre",
     "category": "Oil",
     "brand": {
-      "name": "Rupchanda",
-      "id": "..."
+      "name": "rupchanda",
+      "id": "643428f51f1755c1e5bd6964"
     }
   },
 
   {
-    "name": "Fresh Refined Sugar",
+    "name": "Rupchanda Refined Sugar",
     "description": "Fresh Refined sugar is a modern processes of without touching hand to protect the health of assurance. Fresh refined sugar is completely acid, fecal residues free and neat and clean, healthy, granulated sugar.",
     "imageURLs": [
       "https://chaldn.com/_mpimage/fresh-refined-sugar-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113128&q=best&v=1&m=400&webp=1"
@@ -107,8 +106,8 @@
     "unit": "kg",
     "category": "Sugar",
     "brand": {
-      "name": "Fresh",
-      "id": "..."
+      "name": "rupchanda",
+      "id": "643428f51f1755c1e5bd6964"
     }
   }
 ]

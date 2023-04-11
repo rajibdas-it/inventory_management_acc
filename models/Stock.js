@@ -35,16 +35,7 @@ const stockSchema = mongoose.Schema(
       required: true,
       min: [0, "Product price cannot be negative"],
     },
-    category: {
-      name: {
-        type: String,
-        required: true,
-      },
-      id: {
-        type: ObjectId,
-        ref: "Category",
-      },
-    },
+    category: String,
     brand: {
       name: {
         type: String,
@@ -60,19 +51,18 @@ const stockSchema = mongoose.Schema(
         type: String,
         required: [true, "Please provide a store name"],
         trim: true,
-        unique: true,
         lowercase: true,
         maxlength: 100,
         enum: {
           values: [
-            "Dhaka",
-            "Khulna",
-            "Chottagram",
-            "Barishal",
-            "Mymenshing",
-            "Rajshahi",
-            "Sylhet",
-            "Rangpur",
+            "dhaka",
+            "khulna",
+            "chattogram",
+            "barishal",
+            "mymenshing",
+            "rajshahi",
+            "sylhet",
+            "rangpur",
           ],
           message: "{VALUE} is not a valid name",
         },
@@ -85,7 +75,6 @@ const stockSchema = mongoose.Schema(
     supplierBy: {
       name: {
         type: String,
-        required: true,
       },
       id: {
         type: ObjectId,
@@ -95,8 +84,9 @@ const stockSchema = mongoose.Schema(
     status: {
       type: String,
       required: true,
+      default: "in-stock",
       enum: {
-        values: ["in-stock", "out-of-stock", "discontinued"],
+        values: ["in-stock", "out-of-stock"],
         message: "status cannot be {VALUES}",
       },
     },
