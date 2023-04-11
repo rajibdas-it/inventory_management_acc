@@ -4,6 +4,7 @@ const {
 } = require("../services/user.services");
 
 const bcrypt = require("bcrypt");
+const { generateToken } = require("../utils/token");
 
 module.exports.signup = async (req, res) => {
   try {
@@ -57,10 +58,28 @@ module.exports.login = async (req, res, next) => {
         error: "Inactive account. please check your email and active it.",
       });
     }
+
+    //create token for user
+    const token = generateToken(user);
+    const { password: pwd, ...others } = user.toObject();
+    const newData = {
+      email: user.email,
+      role: user.role,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      contactNumber: user.contactNumber,
+      shippingAddress: user.shippingAddress,
+      imageURL: user.imageURL,
+      status: user.status,
+    };
+
     res.status(200).json({
       status: "success",
       message: "successfully login",
-      data: user.email,
+      data: {
+        newData,
+        token,
+      },
     });
   } catch (error) {
     res.status(500).json({
