@@ -12,6 +12,7 @@ const categoryRouter = require("./routes/category.route");
 const supplierRouter = require("./routes/supplier.route");
 const stockRouter = require("./routes/stock.route");
 const userRouter = require("./routes/user.route");
+const verifyToken = require("./middleware/verifyToken");
 
 //middlewares
 app.use(express.json());

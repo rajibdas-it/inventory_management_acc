@@ -89,3 +89,14 @@ module.exports.login = async (req, res, next) => {
     });
   }
 };
+
+module.exports.getMe = async (req, res) => {
+  try {
+    res.json(req.user);
+  } catch (error) {
+    res.status(500).json({
+      status: "fail",
+      error: error.message,
+    });
+  }
+};
