@@ -5,10 +5,19 @@ const {
 
 const bcrypt = require("bcrypt");
 const { generateToken } = require("../utils/token");
+const { sendMailWithMailGun } = require("../utils/email");
 
 module.exports.signup = async (req, res) => {
   try {
     const result = await userSignupServices(req.body);
+
+    const mailData = {
+      to: [result.email],
+      subject: "Verify your account",
+      text: "Thank you",
+    };
+
+    await sendMailWithMailGun(mailData);
     res.status(200).json({
       status: "success",
       message: "User created successfully",
