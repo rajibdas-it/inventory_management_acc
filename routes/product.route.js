@@ -3,9 +3,10 @@ const productController = require("../controllers/product.controller");
 const router = express.Router();
 const multer = require("multer");
 const uploader = require("../middleware/uploader");
+const verifyToken = require("../middleware/verifyToken");
 
 //kothay picture upload hobe. dest ta bulit in function
-
+router.use(verifyToken); //all route check verify token
 router.post(
   "/file-upload",
   // uploader.single("image"), //for single upload
@@ -15,7 +16,7 @@ router.post(
 router
   .route("/")
   .get(productController.getProducts)
-  .post(productController.addProduct);
+  .post(verifyToken, productController.addProduct);
 router.route("/bulk-update").patch(productController.bulkUpdateProduct);
 router
   .route("/:id")
