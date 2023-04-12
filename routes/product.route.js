@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require("multer");
 const uploader = require("../middleware/uploader");
 const verifyToken = require("../middleware/verifyToken");
+const authorization = require("../middleware/authorization");
 
 //kothay picture upload hobe. dest ta bulit in function
 router.use(verifyToken); //all route check verify token
@@ -16,7 +17,11 @@ router.post(
 router
   .route("/")
   .get(productController.getProducts)
-  .post(verifyToken, productController.addProduct);
+  .post(
+    verifyToken,
+    authorization("admin", "store-manager"),
+    productController.addProduct
+  );
 router.route("/bulk-update").patch(productController.bulkUpdateProduct);
 router
   .route("/:id")
